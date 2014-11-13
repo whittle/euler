@@ -1,6 +1,8 @@
 module Main where
+
+import qualified Euler.Problem001 as Problem001
+
 main :: IO ()
 main = do
-    putStrLn "You fight with the strength of many men sir Knight..."
-    putStrLn "You have proved yourself worthy; will you join me?"
-    putStrLn "You make me sad. So be it. Come, Patsy."
+  putStr "Problem 001 solution: "
+  print $ Problem001.solution 1000

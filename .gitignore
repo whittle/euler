@@ -1,6 +1,6 @@
 .cabal-sandbox
+cabal.config
 cabal.sandbox.config
 dist
 *.swp
-*~
 .ghci

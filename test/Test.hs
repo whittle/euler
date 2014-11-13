@@ -2,6 +2,7 @@ module Main where
 
 import Test.Tasty (defaultMain,testGroup,TestTree)
 
+import Euler.Problem001.Test
 import Euler.Swallow.Test
 import Euler.Coconut.Test
 
@@ -10,6 +11,7 @@ main = defaultMain tests
 
 tests :: TestTree
 tests = testGroup "All Tests"
-            [ swallowSuite
+            [ problem001Suite
+            , swallowSuite
             , coconutSuite
             ]
