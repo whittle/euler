@@ -25,6 +25,7 @@ library
                         , Euler.Problem001
                         , Euler.Problem002
                         , Euler.Problem003
+                        , Euler.Problem004
                         , Euler.Swallow
                         , Euler.Coconut
   -- other-modules:
