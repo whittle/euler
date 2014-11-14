@@ -1,11 +1,14 @@
 module Main where
 
-import qualified Euler.Problem001 as Problem001
-import qualified Euler.Problem002 as Problem002
+import qualified Euler.Problem001
+import qualified Euler.Problem002
+import qualified Euler.Problem003
 
 main :: IO ()
 main = do
   putStr "Problem 001 solution: "
-  print $ Problem001.solution 1000
+  print $ Euler.Problem001.solution 1000
   putStr "Problem 002 solution: "
-  print $ Problem002.solution 4000000
+  print $ Euler.Problem002.solution 4000000
+  putStr "Problem 003 solution: "
+  print $ Euler.Problem003.solution 600851475143
