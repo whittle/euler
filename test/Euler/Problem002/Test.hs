@@ -1,15 +1,15 @@
-module Euler.Problem002.Test (problem002Suite) where
+module Euler.Problem002.Test (suite) where
 
 import Test.Tasty (testGroup, TestTree)
 import Test.Tasty.HUnit
 
 import Euler.Problem002
 
-problem002Suite :: TestTree
-problem002Suite = testGroup "Problem002"
-                  [ testCase "with ceiling 100" test100
-                  , testCase "Fibonacci sequence" testFib
-                  ]
+suite :: TestTree
+suite = testGroup "Problem002"
+        [ testCase "with ceiling 100" test100
+        , testCase "Fibonacci sequence" testFib
+        ]
 
 test100 :: Assertion
 test100 = 44 @=? solution 100
