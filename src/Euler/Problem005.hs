@@ -9,7 +9,7 @@ module Euler.Problem005
        ) where
 
 solution :: Integer -> Integer
-solution ceil = head . filter divisible $ [1..]
+solution ceil = head . filter divisible $ [ceil, (2*ceil)..]
   where divisible i = all (\j -> i `mod` j == 0) (ceil `downto` 1)
 
 downto :: Integer -> Integer -> [Integer]

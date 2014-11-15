@@ -6,6 +6,7 @@ import qualified Euler.Problem003
 import qualified Euler.Problem004
 import qualified Euler.Problem005
 import qualified Euler.Problem006
+import qualified Euler.Problem007
 
 main :: IO ()
 main = do
@@ -15,6 +16,7 @@ main = do
   label "004" $ Euler.Problem004.solution 1000
   label "005" $ Euler.Problem005.solution 20
   label "006" $ Euler.Problem006.solution 100
+  label "007" $ Euler.Problem007.solution 10001
 
 label :: String -> Integer -> IO ()
 label s i = do

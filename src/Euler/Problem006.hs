@@ -21,4 +21,3 @@ module Euler.Problem006
 
 solution :: Integer -> Integer
 solution ceil = 2 * sum [i * j | i <- [1..ceil], j <- [1..(i-1)]]
-
