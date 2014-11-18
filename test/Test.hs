@@ -2,6 +2,7 @@ module Main where
 
 import Test.Tasty (defaultMain, testGroup, TestTree)
 
+import qualified Euler.Primes.Test
 import qualified Euler.Problem001.Test
 import qualified Euler.Problem002.Test
 import qualified Euler.Problem003.Test
@@ -11,13 +12,15 @@ import qualified Euler.Problem006.Test
 import qualified Euler.Problem007.Test
 import qualified Euler.Problem008.Test
 import qualified Euler.Problem009.Test
+import qualified Euler.Problem010.Test
 
 main :: IO ()
 main = defaultMain tests
 
 tests :: TestTree
 tests = testGroup "All Tests"
-        [ Euler.Problem001.Test.suite
+        [ Euler.Primes.Test.suite
+        , Euler.Problem001.Test.suite
         , Euler.Problem002.Test.suite
         , Euler.Problem003.Test.suite
         , Euler.Problem004.Test.suite
@@ -26,4 +29,5 @@ tests = testGroup "All Tests"
         , Euler.Problem007.Test.suite
         , Euler.Problem008.Test.suite
         , Euler.Problem009.Test.suite
+        , Euler.Problem010.Test.suite
         ]

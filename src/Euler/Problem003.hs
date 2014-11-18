@@ -4,21 +4,9 @@
 
 module Euler.Problem003
        ( solution
-       , primeFactors
        ) where
+
+import Euler.Primes (primeFactors)
 
 solution :: Integer -> Integer
 solution = last . primeFactors
-
-primeFactors :: Integer -> [Integer]
-primeFactors = factor primes
-  where factor (p:ps) i
-          | p * p > i      = [i]
-          | i `mod` p == 0 = p : factor (p:ps) (i `div` p)
-          | otherwise      = factor ps i
-        factor [] _ = error "exhausted primes"
-
-primes :: [Integer]
-primes = 2 : filter (singleton . primeFactors) [3, 5 ..]
-  where singleton (_:[]) = True
-        singleton _ = False
