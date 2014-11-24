@@ -7,4 +7,7 @@ module Euler.Problem016
        ) where
 
 solution :: Integer -> Integer
-solution = undefined
+solution e = sum . digits $ 2^e
+
+digits :: Integer -> [Integer]
+digits = map (read . return) . show
