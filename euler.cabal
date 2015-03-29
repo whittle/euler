@@ -42,6 +42,7 @@ library
                         , Euler.Problem016
                         , Euler.Problem017
                         , Euler.Problem018
+                        , Euler.Problem019
   -- other-modules:
   -- other-extensions:
   build-depends:        base == 4.7.*
@@ -58,6 +59,7 @@ executable test-euler
   default-language:     Haskell2010
   build-depends:        base == 4.7.*, Cabal >= 1.16.0
                         , hmatrix == 0.16.*
+                        , time == 1.4.*
                         , euler
                         , HUnit
                         , QuickCheck
@@ -74,6 +76,7 @@ test-suite Tests
   default-language:     Haskell2010
   build-depends:        base ==4.7.*, Cabal >= 1.16.0
                         , hmatrix == 0.16.*
+                        , time == 1.4.*
                         , euler
                         , HUnit
                         , QuickCheck
