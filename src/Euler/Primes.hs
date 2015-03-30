@@ -3,6 +3,7 @@
 module Euler.Primes
        ( primes
        , primeFactors
+       , primeFactorization
        ) where
 
 primes :: [Integer]
@@ -17,3 +18,15 @@ primeFactors = factor primes
           | i `mod` p == 0 = p : factor (p:ps) (i `div` p)
           | otherwise      = factor ps i
         factor [] _ = error "exhausted primes"
+
+type Factor = (Integer, Integer)
+
+primeFactorization :: Integer -> [Factor]
+primeFactorization = factorize primes []
+  where factorize (p:ps) m i
+          | p * p > i      = incr i m
+          | i `mod` p == 0 = factorize (p:ps) (incr p m) (i `div` p)
+          | otherwise      = factorize ps m i
+        factorize [] _ _ = error "exhausted primes"
+        incr k ((f, e):fs) = if k == f then (f, e + 1) : fs else (k, 1) : (f, e) : fs
+        incr k [] = [(k, 1)]
