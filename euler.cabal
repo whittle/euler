@@ -16,39 +16,39 @@ cabal-version:          >=1.10
 executable euler
   main-is:              Main.hs
   build-depends:        base == 4.7.*
-                        , hmatrix == 0.16.*
-                        , memoize == 0.6.*
+                      , hmatrix == 0.16.*
+                      , memoize == 0.6.*
   hs-source-dirs:       src
   ghc-options:          -Wall
   default-language:     Haskell2010
 
 library
   exposed-modules:      Euler.Factorial
-                        , Euler.Primes
-                        , Euler.Problem001
-                        , Euler.Problem002
-                        , Euler.Problem003
-                        , Euler.Problem004
-                        , Euler.Problem005
-                        , Euler.Problem006
-                        , Euler.Problem007
-                        , Euler.Problem008
-                        , Euler.Problem009
-                        , Euler.Problem010
-                        , Euler.Problem011
-                        , Euler.Problem012
-                        , Euler.Problem013
-                        , Euler.Problem014
-                        , Euler.Problem015
-                        , Euler.Problem016
-                        , Euler.Problem017
-                        , Euler.Problem018
-                        , Euler.Problem019
+                      , Euler.Primes
+                      , Euler.Problem001
+                      , Euler.Problem002
+                      , Euler.Problem003
+                      , Euler.Problem004
+                      , Euler.Problem005
+                      , Euler.Problem006
+                      , Euler.Problem007
+                      , Euler.Problem008
+                      , Euler.Problem009
+                      , Euler.Problem010
+                      , Euler.Problem011
+                      , Euler.Problem012
+                      , Euler.Problem013
+                      , Euler.Problem014
+                      , Euler.Problem015
+                      , Euler.Problem016
+                      , Euler.Problem017
+                      , Euler.Problem018
+                      , Euler.Problem019
   -- other-modules:
   -- other-extensions:
   build-depends:        base == 4.7.*
-                        , hmatrix == 0.16.*
-                        , memoize == 0.6.*
+                      , hmatrix == 0.16.*
+                      , memoize == 0.6.*
   ghc-options:          -Wall
   hs-source-dirs:       src
   default-language:     Haskell2010
@@ -59,16 +59,16 @@ executable test-euler
   main-is:              Test.hs
   default-language:     Haskell2010
   build-depends:        base == 4.7.*, Cabal >= 1.16.0
-                        , hmatrix == 0.16.*
-                        , time == 1.4.*
-                        , euler
-                        , HUnit
-                        , QuickCheck
-                        , smallcheck
-                        , tasty
-                        , tasty-hunit
-                        , tasty-quickcheck
-                        , tasty-smallcheck
+                      , hmatrix == 0.16.*
+                      , time == 1.4.*
+                      , euler
+                      , HUnit
+                      , QuickCheck
+                      , smallcheck
+                      , tasty
+                      , tasty-hunit
+                      , tasty-quickcheck
+                      , tasty-smallcheck
 test-suite Tests
   hs-source-dirs:       test
   ghc-options:          -Wall
@@ -76,13 +76,13 @@ test-suite Tests
   Type:                 exitcode-stdio-1.0
   default-language:     Haskell2010
   build-depends:        base ==4.7.*, Cabal >= 1.16.0
-                        , hmatrix == 0.16.*
-                        , time == 1.4.*
-                        , euler
-                        , HUnit
-                        , QuickCheck
-                        , smallcheck
-                        , tasty
-                        , tasty-hunit
-                        , tasty-quickcheck
-                        , tasty-smallcheck
+                      , hmatrix == 0.16.*
+                      , time == 1.4.*
+                      , euler
+                      , HUnit
+                      , QuickCheck
+                      , smallcheck
+                      , tasty
+                      , tasty-hunit
+                      , tasty-quickcheck
+                      , tasty-smallcheck
