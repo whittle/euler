@@ -1,7 +1,6 @@
 module Euler.Primes.Test (suite) where
 
-import Control.Monad
-import Data.List (nub)
+import Data.List (nub, sort)
 import Test.Tasty (testGroup, TestTree)
 import Test.Tasty.HUnit
 import Test.Tasty.QuickCheck
@@ -16,6 +15,8 @@ suite = testGroup "Primes"
                   , testCase "factorization of 120" test120factorization
                   , testProperty "factorization" prop_factorization
                   , testProperty "factors vs factorization" prop_factorsVsFactorization
+                  , testCase "proper divisors of 120" testProperDivisors120
+                  , testProperty "sum of proper divisors" prop_sumOfProperDivisors
                   ]
 
 -- For the sake of speed, don’t do tests on integers over this limit
@@ -32,17 +33,25 @@ test13195factors :: Assertion
 test13195factors = [5, 7, 13, 29] @=? primeFactors 13195
 
 prop_factors :: Integer -> Property
-prop_factors n = inRange n ==> posterior n
-  where posterior = ap (==) (product . primeFactors)
+prop_factors n = inRange n ==> left n == n
+  where left = product . primeFactors
 
 test120factorization :: Assertion
 test120factorization = [(5, 1), (3, 1), (2, 3)] @=? primeFactorization 120
 
 prop_factorization :: Integer -> Property
-prop_factorization n = inRange n ==> posterior n
-  where posterior = ap (==) (product . map raise . primeFactorization)
-        raise (b, e) = b ^ e
+prop_factorization n = inRange n ==> left n == n
+  where left = product . map (uncurry (^)) . primeFactorization
 
 prop_factorsVsFactorization :: Integer -> Property
-prop_factorsVsFactorization n = inRange n ==> posterior n
-  where posterior = liftM2 (==) (nub . primeFactors) (reverse . map fst . primeFactorization)
+prop_factorsVsFactorization n = inRange n ==> left n == right n
+  where left = sort . nub . primeFactors
+        right = sort . map fst . primeFactorization
+
+testProperDivisors120 :: Assertion
+testProperDivisors120 = [1, 2, 3, 4, 5, 6, 8, 10, 12, 15, 20, 24, 30, 40, 60] @=? (sort $ properDivisors 120)
+
+prop_sumOfProperDivisors :: Integer -> Property
+prop_sumOfProperDivisors n = n > 1 && n < maxInput ==> left n == right n
+  where left = sum . properDivisors
+        right = sumOfProperDivisors
