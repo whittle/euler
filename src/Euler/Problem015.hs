@@ -8,16 +8,12 @@
 
 module Euler.Problem015
        ( solution
-       , fact
        ) where
+
+import Euler.Factorial (factorial)
 
 -- Where n is the size of the grid, (2n)! / 2(n!)
 
 solution :: Integer -> Integer
-solution n = fact (2 * n) `div` sq (fact n)
+solution n = factorial (2 * n) `div` sq (factorial n)
   where sq i = i * i
-
-fact :: Integer -> Integer
-fact 1 = 1
-fact n = n * fact (n - 1)
-
