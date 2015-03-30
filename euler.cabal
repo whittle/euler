@@ -45,6 +45,7 @@ library
                       , Euler.Problem018
                       , Euler.Problem019
                       , Euler.Problem020
+                      , Euler.Problem021
   -- other-modules:
   -- other-extensions:
   build-depends:        base == 4.7.*

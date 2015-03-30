@@ -20,6 +20,7 @@ import qualified Euler.Problem017
 import qualified Euler.Problem018
 import qualified Euler.Problem019
 import qualified Euler.Problem020
+import qualified Euler.Problem021
 
 main :: IO ()
 main = do
@@ -44,6 +45,7 @@ main = do
   label "018" $ Euler.Problem018.solution file018
   label "019" $ Euler.Problem019.solution (1901, 1, 1) (2000, 12, 31)
   label "020" $ Euler.Problem020.solution 100
+  label "021" $ Euler.Problem021.solution 10000
 
 label :: Integral n => String -> n -> IO ()
 label s i = do
