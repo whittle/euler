@@ -7,8 +7,16 @@ import Euler.Factorial
 
 suite :: TestTree
 suite = testGroup "Factorial"
-        [ testCase "of 10" test10
+        [ testCase "first" testFirst
+        , testCase "shortest" testShortest
+        , testCase "fastest" testFastest
         ]
 
-test10 :: Assertion
-test10 = 3628800 @=? simplest 10
+testFirst :: Assertion
+testFirst = 3628800 @=? first 10
+
+testShortest :: Assertion
+testShortest = 3628800 @=? shortest 10
+
+testFastest :: Assertion
+testFastest = 3628800 @=? fastest 10
