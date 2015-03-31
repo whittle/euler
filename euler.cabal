@@ -14,11 +14,9 @@ extra-source-files:     README.md
 cabal-version:          >=1.10
 
 executable euler
-  main-is:              Main.hs
+  main-is:              src/Main.hs
   build-depends:        base == 4.7.*
-                      , hmatrix == 0.16.*
-                      , memoize == 0.6.*
-  hs-source-dirs:       src
+                      , euler == 0.1.0.0
   ghc-options:          -Wall
   default-language:     Haskell2010
 
@@ -48,8 +46,6 @@ library
                       , Euler.Problem021
                       , Euler.Problem022
                       , Euler.Problem023
-  -- other-modules:
-  -- other-extensions:
   build-depends:        base == 4.7.*
                       , hmatrix == 0.16.*
                       , memoize == 0.6.*
@@ -62,7 +58,8 @@ executable test-euler
   ghc-options:          -Wall
   main-is:              Test.hs
   default-language:     Haskell2010
-  build-depends:        base == 4.7.*, Cabal >= 1.16.0
+  build-depends:        base == 4.7.*
+                      , Cabal >= 1.16.0
                       , hmatrix == 0.16.*
                       , time == 1.4.*
                       , euler
@@ -74,13 +71,15 @@ executable test-euler
                       , tasty-quickcheck
                       , tasty-smallcheck
                       , tasty-th
+
 test-suite Tests
   hs-source-dirs:       test
   ghc-options:          -Wall
   main-is:              Test.hs
   Type:                 exitcode-stdio-1.0
   default-language:     Haskell2010
-  build-depends:        base ==4.7.*, Cabal >= 1.16.0
+  build-depends:        base ==4.7.*
+                      , Cabal >= 1.16.0
                       , hmatrix == 0.16.*
                       , time == 1.4.*
                       , euler
