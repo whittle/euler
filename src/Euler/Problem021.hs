@@ -12,22 +12,14 @@
 module Euler.Problem021
        ( solution
        , amicable
-       , divisors
        ) where
 
-import Data.Function.Memoize
+import Euler.Primes
 
 solution :: Integer -> Integer
 solution n = sum $ filter amicable [1..(pred n)]
 
 amicable :: Integer -> Bool
 amicable n = n /= once && n == twice
-  where once = sumOfDivisors n
-        twice = sumOfDivisors once
-
-sumOfDivisors :: Integer -> Integer
-sumOfDivisors = memoize $ sum . divisors
-
-divisors :: Integer -> [Integer]
-divisors n = filter evenDiv [1..(n `div` 2)]
-  where evenDiv i = n `mod` i == 0
+  where once = sumOfProperDivisors n
+        twice = sumOfProperDivisors once
