@@ -42,7 +42,9 @@ properDivisors = nub . map product . properSubsequences . primeFactors
   where properSubsequences l = delete l $ subsequences l
 
 sumOfProperDivisors :: Integer -> Integer
-sumOfProperDivisors n = sumOfDivisors n - n
+sumOfProperDivisors n
+  | n < 2     = 0
+  | otherwise = sumOfDivisors n - n
 
 -- http://math.stackexchange.com/questions/22721/is-there-a-formula-to-calculate-the-sum-of-all-proper-divisors-of-a-number
 -- http://planetmath.org/formulaforsumofdivisors
