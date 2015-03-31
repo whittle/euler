@@ -22,6 +22,7 @@ import qualified Euler.Problem019
 import qualified Euler.Problem020
 import qualified Euler.Problem021
 import qualified Euler.Problem022
+import qualified Euler.Problem023
 
 main :: IO ()
 main = do
@@ -49,6 +50,7 @@ main = do
   label "021" $ Euler.Problem021.solution 10000
   file022 <- readFile "input/022.txt"
   label "022" $ Euler.Problem022.solution file022
+  label "023" $ Euler.Problem023.solution 28123
 
 label :: Integral n => String -> n -> IO ()
 label s i = do

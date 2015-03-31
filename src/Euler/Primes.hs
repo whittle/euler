@@ -35,6 +35,8 @@ primeFactorization = factorize primes []
         incr k ((f, e):fs) = if k == f then (f, e + 1) : fs else (k, 1) : (f, e) : fs
         incr k [] = [(k, 1)]
 
+-- This is unnecessarily slow, but right now I’m just using it to test
+-- sumOfProperDivisors against.
 properDivisors :: Integer -> [Integer]
 properDivisors = nub . map product . properSubsequences . primeFactors
   where properSubsequences l = delete l $ subsequences l
