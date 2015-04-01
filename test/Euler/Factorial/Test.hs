@@ -13,10 +13,10 @@ suite = testGroup "Factorial"
         ]
 
 testFirst :: Assertion
-testFirst = 3628800 @=? first 10
+testFirst = 3628800 @=? first (10 :: Int)
 
 testShortest :: Assertion
-testShortest = 3628800 @=? shortest 10
+testShortest = 3628800 @=? shortest (10 :: Int)
 
 testFastest :: Assertion
-testFastest = 3628800 @=? fastest 10
+testFastest = 3628800 @=? fastest (10 :: Int)

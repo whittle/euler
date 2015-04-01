@@ -7,18 +7,18 @@ module Euler.Factorial
        , fastest
        ) where
 
-factorial :: Integer -> Integer
+factorial :: Integral a => a -> a
 factorial = fastest
 
-first :: Integer -> Integer
+first :: Integral a => a -> a
 first 1 = 1
 first n = n * first (n - 1)
 
-shortest :: Integer -> Integer
+shortest :: Integral a => a -> a
 shortest n = product [1..n]
 
 -- Stolen from http://www.serpentine.com/blog/2007/04/23/efficiently-computing-a-factorial-using-binary-splitting/
-fastest :: Integer -> Integer
+fastest :: Integral a => a -> a
 fastest n = split n 0
   where split a b = let d = a - b
                     in if d < 0
