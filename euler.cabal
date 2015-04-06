@@ -47,6 +47,7 @@ library
                       , Euler.Problem022
                       , Euler.Problem023
                       , Euler.Problem024
+                      , Euler.Problem025
   build-depends:        base == 4.7.*
                       , hmatrix == 0.16.*
                       , memoize == 0.6.*
