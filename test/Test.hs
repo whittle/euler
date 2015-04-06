@@ -27,6 +27,7 @@ import qualified Euler.Problem020.Test
 import qualified Euler.Problem021.Test
 import qualified Euler.Problem022.Test
 import qualified Euler.Problem023.Test
+import qualified Euler.Problem024.Test
 
 main :: IO ()
 main = defaultMain tests
@@ -58,4 +59,5 @@ tests = testGroup "All Tests"
         , Euler.Problem021.Test.suite
         , Euler.Problem022.Test.suite
         , Euler.Problem023.Test.suite
+        , Euler.Problem024.Test.suite
         ]
