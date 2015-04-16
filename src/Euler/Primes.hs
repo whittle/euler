@@ -2,6 +2,7 @@
 
 module Euler.Primes
        ( primes
+       , isPrime
        , primeFactors
        , primeFactorization
        , properDivisors
@@ -10,12 +11,13 @@ module Euler.Primes
 
 import Data.List (delete, nub, subsequences)
 
-primes :: [Integer]
-primes = 2 : filter (singleton . primeFactors) [3, 5 ..]
-  where singleton (_:[]) = True
-        singleton _ = False
+primes :: Integral a => [a]
+primes = 2 : filter isPrime [3, 5 ..]
 
-primeFactors :: Integer -> [Integer]
+isPrime :: Integral a => a -> Bool
+isPrime = null . tail . primeFactors
+
+primeFactors :: Integral a => a -> [a]
 primeFactors = factor primes
   where factor (p:ps) i
           | p * p > i      = [i]
@@ -23,9 +25,7 @@ primeFactors = factor primes
           | otherwise      = factor ps i
         factor [] _ = error "exhausted primes"
 
-type Factor = (Integer, Integer)
-
-primeFactorization :: Integer -> [Factor]
+primeFactorization :: Integral a => a -> [(a, a)]
 primeFactorization = factorize primes []
   where factorize (p:ps) m i
           | p * p > i      = incr i m
@@ -37,17 +37,17 @@ primeFactorization = factorize primes []
 
 -- This is unnecessarily slow, but right now I’m just using it to test
 -- sumOfProperDivisors against.
-properDivisors :: Integer -> [Integer]
+properDivisors :: Integral a => a -> [a]
 properDivisors = nub . map product . properSubsequences . primeFactors
   where properSubsequences l = delete l $ subsequences l
 
-sumOfProperDivisors :: Integer -> Integer
+sumOfProperDivisors :: Integral a => a -> a
 sumOfProperDivisors n
   | n < 2     = 0
   | otherwise = sumOfDivisors n - n
 
 -- http://math.stackexchange.com/questions/22721/is-there-a-formula-to-calculate-the-sum-of-all-proper-divisors-of-a-number
 -- http://planetmath.org/formulaforsumofdivisors
-sumOfDivisors :: Integer -> Integer
+sumOfDivisors :: Integral a => a -> a
 sumOfDivisors = product . map f . primeFactorization
   where f (p, a) = (p ^ (a + 1) - 1) `div` (p - 1)
