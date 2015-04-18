@@ -17,7 +17,7 @@ executable euler
   main-is:              src/Main.hs
   build-depends:        base == 4.7.*
                       , euler == 0.1.0.0
-  ghc-options:          -Wall
+  ghc-options:          -Wall -O2
   default-language:     Haskell2010
 
 library
