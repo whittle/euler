@@ -15,7 +15,7 @@ cabal-version:          >=1.10
 
 executable euler
   main-is:              src/Main.hs
-  build-depends:        base == 4.7.*
+  build-depends:        base >= 4.8.0
                       , euler == 0.1.0.0
   ghc-options:          -Wall -O2
   default-language:     Haskell2010
@@ -51,9 +51,9 @@ library
                       , Euler.Problem026
                       , Euler.Problem027
                       , Euler.Problem028
-  build-depends:        base == 4.7.*
-                      , hmatrix == 0.16.*
-                      , memoize == 0.6.*
+  build-depends:        base >= 4.8.0
+                      , hmatrix >= 0.16.0
+                      , memoize >= 0.6.0
   ghc-options:          -Wall
   hs-source-dirs:       src
   default-language:     Haskell2010
@@ -63,10 +63,10 @@ executable test-euler
   ghc-options:          -Wall
   main-is:              Test.hs
   default-language:     Haskell2010
-  build-depends:        base == 4.7.*
+  build-depends:        base >= 4.8.0
                       , Cabal >= 1.16.0
-                      , hmatrix == 0.16.*
-                      , time == 1.4.*
+                      , hmatrix >= 0.16.0
+                      , time >= 1.4.0
                       , euler
                       , HUnit
                       , QuickCheck
@@ -83,10 +83,10 @@ test-suite Tests
   main-is:              Test.hs
   Type:                 exitcode-stdio-1.0
   default-language:     Haskell2010
-  build-depends:        base ==4.7.*
+  build-depends:        base >= 4.8.0
                       , Cabal >= 1.16.0
-                      , hmatrix == 0.16.*
-                      , time == 1.4.*
+                      , hmatrix >= 0.16.0
+                      , time >= 1.4.0
                       , euler
                       , HUnit
                       , QuickCheck
