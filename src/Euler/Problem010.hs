@@ -6,7 +6,7 @@ module Euler.Problem010
        ( solution
        ) where
 
-import Euler.Primes (primes)
+import Math.Primes (primes)
 
 solution :: Integer -> Integer
 solution ceil = sum $ takeWhile (<ceil) primes

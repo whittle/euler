@@ -22,7 +22,7 @@ executable euler
 
 library
   exposed-modules:      Euler.Factorial
-                      , Euler.Primes
+                      , Math.Primes
                       , Euler.Problem001
                       , Euler.Problem002
                       , Euler.Problem003

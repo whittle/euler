@@ -6,7 +6,7 @@ module Euler.Problem003
        ( solution
        ) where
 
-import Euler.Primes (primeFactors)
+import Math.Primes (primeFactors)
 
 solution :: Integer -> Integer
 solution = last . primeFactors

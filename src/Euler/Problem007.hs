@@ -8,7 +8,7 @@ module Euler.Problem007
        ) where
 
 import Data.List (genericIndex)
-import Euler.Primes
+import Math.Primes
 
 solution :: Integer -> Integer
 solution = genericIndex primes . pred

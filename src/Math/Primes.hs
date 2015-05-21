@@ -1,6 +1,6 @@
 -- A collection of functions helpful for finding primes.
 
-module Euler.Primes
+module Math.Primes
        ( primes
        , isPrime
        , primeFactors

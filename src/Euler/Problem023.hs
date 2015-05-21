@@ -28,7 +28,7 @@ module Euler.Problem023
 import Control.Monad
 import Data.Function.Memoize
 
-import Euler.Primes
+import Math.Primes
 
 solution :: Integer -> Integer
 solution n = sum $ filter (not . sumOfAbundants) [1..n]

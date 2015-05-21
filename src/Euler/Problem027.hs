@@ -32,7 +32,7 @@ import Data.Function.Memoize (memoize)
 import Data.List (maximumBy)
 import Data.Ord (comparing)
 
-import qualified Euler.Primes
+import qualified Math.Primes
 
 solution :: Int -> Int
 solution = uncurry (*) . maxByCountOfConsecutiveQuadPrimes
@@ -44,7 +44,7 @@ maxByCountOfConsecutiveQuadPrimes n =
   maximumBy (comparing countOfConsecutiveQuadPrimes') $ do
     let n' = if n `mod` 2 == 0 then n - 1 else n - 2
     a <- (enumFromThenTo (-n') (-(n' - 2)) n')
-    b <- tail $ takeWhile (< n) Euler.Primes.primes
+    b <- tail $ takeWhile (< n) Math.Primes.primes
     return (a, b)
 
 countOfConsecutiveQuadPrimes' :: (Int, Int) -> Int
@@ -56,4 +56,4 @@ countOfConsecutiveQuadPrimes (a, b) = head $ dropWhile (isGood . f) [0..]
         f n = n * n + a * n + b
 
 isPrime :: Int -> Bool
-isPrime = memoize Euler.Primes.isPrime
+isPrime = memoize Math.Primes.isPrime

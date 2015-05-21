@@ -14,7 +14,7 @@ module Euler.Problem021
        , amicable
        ) where
 
-import Euler.Primes
+import Math.Primes
 
 solution :: Integer -> Integer
 solution n = sum $ filter amicable [1..(pred n)]

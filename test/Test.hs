@@ -3,7 +3,7 @@ module Main where
 import Test.Tasty (defaultMain, testGroup, TestTree)
 
 import qualified Euler.Factorial.Test
-import qualified Euler.Primes.Test
+import qualified Math.PrimesTest
 import qualified Euler.Problem001Test
 import qualified Euler.Problem002Test
 import qualified Euler.Problem003Test
@@ -39,7 +39,7 @@ main = defaultMain tests
 tests :: TestTree
 tests = testGroup "All Tests"
         [ Euler.Factorial.Test.suite
-        , Euler.Primes.Test.suite
+        , Math.PrimesTest.suite
         , Euler.Problem001Test.suite
         , Euler.Problem002Test.suite
         , Euler.Problem003Test.suite

@@ -1,6 +1,6 @@
 {-# OPTIONS_GHC -XTemplateHaskell #-}
 
-module Euler.Primes.Test (suite) where
+module Math.PrimesTest (suite) where
 
 import Data.List (nub, sort)
 import Test.Tasty (TestTree)
@@ -8,7 +8,7 @@ import Test.Tasty.HUnit
 import Test.Tasty.QuickCheck
 import Test.Tasty.TH (testGroupGenerator)
 
-import Euler.Primes
+import Math.Primes
 
 suite :: TestTree
 suite = $(testGroupGenerator)
