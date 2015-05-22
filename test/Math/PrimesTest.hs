@@ -2,6 +2,7 @@
 
 module Math.PrimesTest (suite) where
 
+import Control.Monad (ap)
 import Data.List (nub, sort)
 import Test.Tasty (TestTree)
 import Test.Tasty.HUnit
@@ -51,6 +52,10 @@ prop_factors_match_factorization :: Integer -> Property
 prop_factors_match_factorization n = inRange n ==> left n == right n
   where left = sort . nub . primeFactors
         right = sort . map fst . primeFactorization
+
+prop_factorization_roots_are_reverse_ordered :: Integer -> Property
+prop_factorization_roots_are_reverse_ordered n = inRange n ==> prop n
+  where prop = and . ap (zipWith (>)) tail . map fst . primeFactorization
 
 case_proper_divisors_of_120 :: Assertion
 case_proper_divisors_of_120 =
