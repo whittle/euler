@@ -1,7 +1,7 @@
 name:                   euler
 version:                0.1.0.0
 synopsis:               Haskell solutions to Project Euler problems.
--- description:
+description:            Haskell solutions to Project Euler problems.
 homepage:               http://github.com/whittle/euler
 license:                MIT
 license-file:           LICENSE
@@ -17,7 +17,7 @@ executable euler
   main-is:              src/Main.hs
   build-depends:        base >= 4.8.0
                       , euler == 0.1.0.0
-  ghc-options:          -Wall -O2
+  ghc-options:          -Wall
   default-language:     Haskell2010
 
 library
@@ -52,7 +52,8 @@ library
                       , Euler.Problem027
                       , Euler.Problem028
                       , Euler.Problem029
-  build-depends:        base >= 4.8.0
+                      , Euler.Problem030
+  build-depends:        base >= 4.8.0 && < 5
                       , containers >= 0.5.0
                       , hmatrix >= 0.16.0
                       , memoize >= 0.6.0
@@ -98,3 +99,7 @@ test-suite Tests
                       , tasty-quickcheck
                       , tasty-smallcheck
                       , tasty-th
+
+source-repository head
+  type: git
+  location: http://github.com/whittle/euler.git
