@@ -2,6 +2,7 @@
 
 set -e
 
-wget -N https://www.stackage.org/nightly/cabal.config
+wget -N -O .stackage https://www.stackage.org/nightly/cabal.config
+cat .cabal .stackage > cabal.config
 cabal update
 cabal install --only-dependencies
