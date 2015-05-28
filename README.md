@@ -10,5 +10,10 @@ Tested with the following versions:
   * LAPACK 3.5
   * BLAS 1.2
 
-Note to future self: For a fast development cycle, install
-[entr](http://entrproject.org/) and run ./test/loop.sh
+To configure for the current Stackage nightly, install
+[wget](https://www.gnu.org/software/wget/) and run the included
+`update_stackage.sh` script, which will generate a `cabal.config`
+file.
+
+For a fast development cycle, install [entr](http://entrproject.org/)
+and run the included `test/loop.sh` script.
