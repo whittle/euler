@@ -21,7 +21,8 @@ executable euler
   default-language:     Haskell2010
 
 library
-  exposed-modules:      Euler.Factorial
+  exposed-modules:      Math.Combinatorics
+                      , Euler.Factorial
                       , Math.Primes
                       , Euler.Problem001
                       , Euler.Problem002
@@ -98,6 +99,16 @@ test-suite Tests
                       , tasty-quickcheck
                       , tasty-smallcheck
                       , tasty-th
+
+benchmark Benches
+  hs-source-dirs:       bench
+  ghc-options:          -Wall
+  main-is:              Bench.hs
+  type:                 exitcode-stdio-1.0
+  default-language:     Haskell2010
+  build-depends:        euler
+                      , base
+                      , criterion >= 1.1.0
 
 source-repository head
   type: git
