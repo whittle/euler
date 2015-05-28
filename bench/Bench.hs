@@ -11,4 +11,4 @@ main = defaultMainWith config
        ]
 
 config :: Config
-config = defaultConfig { reportFile = Just "bench/results.html" }
+config = defaultConfig { reportFile = Just "pages/benchmarks.html" }
