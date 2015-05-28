@@ -31,24 +31,18 @@ module Euler.Problem011
        ( solution
        , vectors
        , submatrices
-       , matrix
        ) where
 
-import Data.List (sort)
-import Numeric.LinearAlgebra.Data (Matrix, Vector, loadMatrix, subMatrix, toRows, toColumns, takeDiag, fliprl, toList)
-import System.IO.Unsafe (unsafePerformIO)
+import Numeric.LinearAlgebra.Data (Matrix, Vector, subMatrix, toRows, toColumns, takeDiag, fliprl, toList)
 
-solution :: Int -> Integer
-solution size = truncate . last . sort . map product . map toList . concatMap vectors $ submatrices size
+solution :: Int -> Matrix Double -> Integer
+solution size = truncate . maximum . map (product . toList) . concatMap vectors . submatrices size
 
 vectors :: Matrix Double -> [Vector Double]
 vectors m = toRows m ++ toColumns m ++ [takeDiag m, takeDiag $ fliprl m]
 
-submatrices :: Int -> [Matrix Double]
-submatrices size = do
+submatrices :: Int -> Matrix Double -> [Matrix Double]
+submatrices size matrix = do
   r <- [0..(20 - size)]
   c <- [0..(20 - size)]
   return $ subMatrix (r, c) (size, size) matrix
-
-matrix :: Matrix Double
-matrix = unsafePerformIO $ loadMatrix "data/Problem011.txt"

@@ -1,5 +1,7 @@
 module Main where
 
+import Numeric.LinearAlgebra.Data (loadMatrix)
+
 import qualified Euler.Problem001
 import qualified Euler.Problem002
 import qualified Euler.Problem003
@@ -42,7 +44,8 @@ main = do
   label "008" $ Euler.Problem008.solution 13
   label "009" $ Euler.Problem009.solution 1000
   label "010" $ Euler.Problem010.solution 2000000
-  label "011" $ Euler.Problem011.solution 4
+  matrix011 <- loadMatrix "input/011.txt"
+  label "011" $ Euler.Problem011.solution 4 matrix011
   label "012" $ Euler.Problem012.solution 500
   label "013" $ Euler.Problem013.solution 10
   label "014" $ Euler.Problem014.solution 1000000

@@ -1,23 +1,24 @@
+{-# OPTIONS_GHC -XTemplateHaskell #-}
+
 module Euler.Problem011Test (suite) where
 
-import Test.Tasty (testGroup, TestTree)
+import Numeric.LinearAlgebra.Data (Matrix, loadMatrix)
+import Test.Tasty (TestTree)
 import Test.Tasty.HUnit
-import Numeric.LinearAlgebra.Data (toList, takeDiag, subMatrix)
+import Test.Tasty.TH (testGroupGenerator)
 
 import Euler.Problem011
 
 suite :: TestTree
-suite = testGroup "Problem011"
-        [ testCase "number of vectors" testVectorsCount
-        , testCase "number of submatrices" testSubmatrices
-        , testCase "selected cells" testSelectedCells
-        ]
+suite = $(testGroupGenerator)
 
-testVectorsCount :: Assertion
-testVectorsCount = 10 @=? (length . vectors . head $ submatrices 4)
+matrix :: IO (Matrix Double)
+matrix = loadMatrix "input/011.txt"
 
-testSubmatrices :: Assertion
-testSubmatrices = 17 * 17 @=? (length $ submatrices 4)
+case_count_of_vectors_in_input :: Assertion
+case_count_of_vectors_in_input =
+  matrix >>= \m -> 10 @=? (length . vectors . head $ submatrices 4 m)
 
-testSelectedCells :: Assertion
-testSelectedCells = [26, 63, 78, 14] @=? (toList . takeDiag . subMatrix (6, 8) (4, 4) $ matrix)
+case_count_of_4x4_submatrices_in_input :: Assertion
+case_count_of_4x4_submatrices_in_input =
+  matrix >>= \m -> 17 * 17 @=? (length $ submatrices 4 m)
