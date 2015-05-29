@@ -1,8 +1,8 @@
 Haskell solutions to Project Euler problems.
 
-[![Build Status](https://travis-ci.org/whittle/euler.svg?branch=master)](https://travis-ci.org/whittle/euler)
-
 ![Project Euler](https://projecteuler.net/profile/whittle.png)
+
+[![Build Status](https://travis-ci.org/whittle/euler.svg?branch=master)](https://travis-ci.org/whittle/euler)
 
 Tested with the following versions:
   * GHC 7.10.1
@@ -17,3 +17,6 @@ file.
 
 For a fast development cycle, install [entr](http://entrproject.org/)
 and run the included `test/loop.sh` script.
+
+The output of the benchmarks is available on [the corresponding GitHub
+page](http://whittle.github.io/euler/benchmarks.html).
